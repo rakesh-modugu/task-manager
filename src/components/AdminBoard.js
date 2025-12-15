@@ -8,23 +8,20 @@ const AdminBoard = ({ users, tasks, onAssignTask, onReassignTask }) => {
   const handleCreate = (e) => {
     e.preventDefault();
     if (!taskTitle) return;
-    onAssignTask(taskTitle, parseInt(assignee)); // Ensure ID is number/string correctly
+    onAssignTask(taskTitle, parseInt(assignee)); 
     setTaskTitle("");
   };
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
-    // result.draggableId = Task ID
-    // result.destination.droppableId = User ID (Target)
+   
     onReassignTask(result.draggableId, parseInt(result.destination.droppableId));
   };
 
-  // Filter out admin from the drag columns
   const standardUsers = users.filter(u => u.role !== 'admin');
 
   return (
     <div className="dashboard-container">
-      {/* Task Creation Section */}
       <div className="control-panel">
         <h3>Create New Task</h3>
         <form onSubmit={handleCreate} className="create-form">
@@ -43,7 +40,6 @@ const AdminBoard = ({ users, tasks, onAssignTask, onReassignTask }) => {
         </form>
       </div>
 
-      {/* Drag Drop Area */}
       <div className="board-layout">
         <DragDropContext onDragEnd={onDragEnd}>
           {standardUsers.map((user) => (
