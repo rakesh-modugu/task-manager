@@ -1,7 +1,6 @@
 import React from "react";
 
 function UserDashboard({ currentUser, tasks, updateTaskStatus }) {
-  // Filter tasks only for this user
   const myTasks = tasks.filter((t) => t.assignedTo === currentUser.id);
 
   return (
