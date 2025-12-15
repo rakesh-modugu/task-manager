@@ -29,9 +29,9 @@ function App() {
 
   const handleAddTask = (title, assigneeId) => {
     const newTask = {
-      id: Date.now().toString(), // String ID always
+      id: Date.now().toString(), 
       title,
-      assignedTo: assigneeId, // Already a string
+      assignedTo: assigneeId, 
       status: "Pending"
     };
     setTasks([...tasks, newTask]);
