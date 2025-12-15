@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../App.css"; // We will use global styles
+import "../App.css"; 
 
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -8,13 +8,11 @@ const LoginForm = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simple validation
     if (!username || !password) {
       setError("Please fill all fields");
       return;
     }
     
-    // Pass data to parent to check credentials
     onLogin(username, password);
   };
 
