@@ -1,38 +1,133 @@
-.App {
+:root {
+  --primary: #4a90e2;
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  margin: 0;
+}
+
+/* Login Styles */
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-box {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 350px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box; /* Fixes padding issues */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Header */
+.top-bar {
+  background: white;
+  padding: 1rem 2rem;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Board Layout */
+.board-layout {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  overflow-x: auto;
+  align-items: flex-start;
+}
+
+.user-column {
+  background: #ebecf0;
+  border-radius: 8px;
+  width: 300px;
+  min-width: 300px;
+  padding: 10px;
+}
+
+.column-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.task-list {
+  min-height: 100px;
+  transition: background-color 0.2s ease;
+}
+
+.task-list.dragging-over {
+  background-color: #dfe1e6;
+}
+
+.task-card {
+  background: white;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  border-left: 4px solid #ddd;
+}
+
+.task-card.Completed {
+  border-left-color: #2ecc71;
+  opacity: 0.7;
+  text-decoration: line-through;
+}
+
+.task-card.Pending {
+  border-left-color: #f1c40f;
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--primary);
   color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-logout {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.hint {
+  font-size: 0.8rem;
+  color: #666;
+  background: #eee;
+  padding: 5px;
+  border-radius: 4px;
 }
