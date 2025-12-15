@@ -4,10 +4,8 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const AdminBoard = ({ users, tasks, onAssignTask, onReassignTask }) => {
   const [taskTitle, setTaskTitle] = useState("");
   
-  // Logic to filter ONLY standard users
   const standardUsers = users.filter(u => u.role !== 'admin');
   
-  // Default to first user ID found
   const [assignee, setAssignee] = useState("");
 
   useEffect(() => {
